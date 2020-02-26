@@ -37,10 +37,9 @@ def predict_image(imgname, from_test_dir):
     return final_result
 
 def verify_test_dir():
-    path = '.\\final-test-images'
+    path = '.\\batch-test-images'
     files = os.listdir(path)
-    file_count = len(files)
-    finals = []
+
     for filename in files:
 
         digits = []
@@ -80,9 +79,9 @@ def verify_test_dir():
             print("{}: INCORRECT PREDICTION!".format(filename))
 
 # erify_test_dir()
-# print('=' * 50)
+print('=' * 50)
 final_result = predict_image('..\\test-images\\kappa.jpg', False)
-# print("Final Result: ", final_result)
+print("Final Result: ", final_result)
 
 
 

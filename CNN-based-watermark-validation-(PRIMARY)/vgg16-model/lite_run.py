@@ -46,14 +46,13 @@ def predict_image(imgname, from_test_dir):
     return final_result
 
 def verify_test_dir():
-    path = '.\\final-test-images'
+    path = '..\\batch-test-images'
     folders = os.listdir(path)
 
     correct_preds = 0
     file_count = 0
     for fold in folders:
         files = os.listdir(path + '\\' + fold)
-        finals = []
         for filename in files:
             final_string = fold
             prediction = predict_image(path + '\\{}\\'.format(fold) + filename, True)
@@ -66,6 +65,6 @@ def verify_test_dir():
 
     print(correct_preds, file_count)
 
-# print('=' * 50)
-# print(predict_image('yesw.jpg', False))
-verify_test_dir()
+print('=' * 50)
+print(predict_image('..\\test-images\\yesw.jpg', False))
+# verify_test_dir()
