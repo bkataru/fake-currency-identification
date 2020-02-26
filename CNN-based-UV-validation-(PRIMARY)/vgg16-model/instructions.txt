@@ -1,0 +1,4 @@
+1. Run pretrained_vgg16_train.py to generate and train the model.
+2. After training, execute the saved model using pretrained_vgg16_test.py. You can change test image inside the file.
+3. Convert the model to tflite version using convert_to_lite.py.
+4. Execute the lite model using lite_run.py. You can change the test image inside the file.

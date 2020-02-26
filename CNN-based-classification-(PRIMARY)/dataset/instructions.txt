@@ -1,0 +1,44 @@
+> get dataset.rar from here: https://drive.google.com/open?id=1E-aukvBDGcKd-N500AZw-E0bz9f6DL7W
+
+> unzip dataset.rar to get the two data folders - training_set and test_set
+
+> training_set contains the training data - 200 images per class 
+and 45 overall classes = 9000 total
+
+> test_set contains the validation_data - 
+100 images per class and 45 classes overall = 4500 total
+
+-----------------------------------------------
+
+Information about the folders: 
+
+- comp_data contains the sample images from which the datasets are generated.
+
+- temp_backup contains a backup of the dataset folder files just in case things go wrong.
+
+
+Information about the utility scripts:
+
+- create_dataset_folders.py: Will generate the class folders inside test_set.
+
+- create_currency_dataset.py: Will go through the sample images in comp_data to generate a dataset. The script can be made to prioritize certain images over others when generating processed copies.
+  for this dataset. High priority images must end with -pr in the filename (example: 10front-pr.jpg). Any images without the -pr suffix will be considered as other (OT) images i.e
+  images with lower priority. For this dataset, I generated 150 copies of high priority (PR) images and 50 copies of other (OT) images per class for the training data, and 75 copies of high priority
+  (PR) images and 25 copies of other (OT) images per class for the validation datasets. There is a flag which will invert the generated copies if set to True. All these parameters
+  can be changed inside the script.
+
+- dellall.py: Will delete all the folders inside training_set and test_set. Can be modified to delete folders in other sets as well.
+
+- delallfiles.py: Will delete all the files in the subfolders of the current directory. Move this into any of the dataset folders and execute it to delete all the files in them but retain
+  the folders.
+
+- rename.py: Will rename all the image files inside the current folder. Move this into any of the dataset subfolders/folders and execute it for renaming.
+
+- recursive_file_count.py: Will recursively count the number of files in the training_set and test_set subfolders of the current directory.
+
+Information about the mischellanous scripts:
+
+- remove-contrast-brightness-watermark.py: Random file made to modify certain images.
+
+- sample.py: Used for holding useful snippets of code.
+

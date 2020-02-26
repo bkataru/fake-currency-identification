@@ -1,0 +1,12 @@
+matplotlib
+numpy
+scipy
+requests
+opencv-python
+keras
+tensorflow/tensorflow-gpu
+Pillow
+scikit-image
+progressbar2
+pyttsx3
+opencv-python

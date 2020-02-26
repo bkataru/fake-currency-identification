@@ -1,0 +1,1 @@
+{'no_watermark': 0, 'yes_watermark': 1}

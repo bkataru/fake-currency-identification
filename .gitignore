@@ -1,0 +1,16 @@
+dev_env/
+application/app_env/
+application/lite-models.rar
+__pycache__/
+
+CNN-based-classification-(PRIMARY)/dataset/test_set/
+CNN-based-classification-(PRIMARY)/dataset/training_set/
+CNN-based-classification-(PRIMARY)/dataset/dataset.rar
+
+CNN-based-UV-validation-(PRIMARY)/dataset/test_set/
+CNN-based-UV-validation-(PRIMARY)/dataset/training_set/
+CNN-based-UV-validation-(PRIMARY)/dataset/dataset.rar
+
+CNN-based-watermark-validation-(PRIMARY)/dataset/test_set/
+CNN-based-watermark-validation-(PRIMARY)/dataset/training_set/
+CNN-based-watermark-validation-(PRIMARY)/dataset/dataset.rar

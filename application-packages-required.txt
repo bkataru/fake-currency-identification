@@ -1,0 +1,8 @@
+numpy
+Pillow
+pyttsx3 (and pywin32 if windows system)
+GPIO
+opencv-python
+picamera
+tflite
+pygame
