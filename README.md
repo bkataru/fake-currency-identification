@@ -9,7 +9,7 @@ Uses retrained MobileNetV2 (and VGG16) image classification models to determine 
 2. **Watermark Identification Model**: Identifies whether the note contains the Gandhi watermark under backlight illumination from a backlight image of the note.
 3. **Ultraviolet Strip Detection Model**: Identifies whether the note contains a fluorescent strip or not and if yes then whether the strip is continuous or dashed under Ultraviolet illumination from a ultraviolet image of the note.
 
-The models were meant to be integrated together to run on a Raspberry Pi (hence the choice of MobileNet for the architecture) but you can strip and use each model individually if you like.
+The models were meant to be integrated together to run on a Raspberry Pi (hence the choice of MobileNet for the architecture) but you can strip and use each model individually if you like. 
 
 Trained and tested on 16 GB of RAM, i7-8750H, and a GTX 1060 all at stock settings.
 ### A Bit of History
@@ -17,6 +17,8 @@ Initially, I tried using KNN-based ORB feature matching to compare features of c
 
 ## Getting Started
 Explore around the folders in the project and check out the code. I've placed text files at appropriate places/folders to act as instructions that will guide you in case you want to do any sort of training yourself. This repo has all the code files you need for retraining, transfer learning, or testing any of my models.
+
+The models were trained on Indian currency notes but you can retrain them for other note images provided you have sufficiently diverse data, regardless of how big it is. Take my setup as an example, I had five-seven unique images of every note which is not much considering the fact that there are only 10-12 varieties of Indian currency notes. So even though I only had about a 100 or so samples, with the help of randomized data augmentation, I strategically generated a vast and diverse dataset of 9000-12000 images using those very samples.
 
 #### Cool things you can try when training/retraining
 Some suggestions in case you feel experimental or are facing issues with accuracy and loss:
