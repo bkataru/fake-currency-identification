@@ -68,7 +68,7 @@ for name in os.listdir('.\\comp_data'):
     if len(name.split('.')) == 1:
         folders.append(name)
 
-        if len(folders.split('_')) == 1:
+        if len(name.split('_')) == 1:
             specimen_count += 1
 print(folders)
 
@@ -79,8 +79,9 @@ test_pr_count = 75 # 75
 test_ot_count = 25 # 25
 
 # ((23 - 1) * (150 + 50) * 2 + (200 * 1)) + ((23 - 1) * (75 + 25) * 2 + (100 * 1))
-total = ((len(folders) - specimen_count) * (training_pr_count + training_ot_count) * 2 + (200 * specimen_count) ) \
+total = ((len(folders) - specimen_count) * (training_pr_count + training_ot_count) * 2 + (200 * specimen_count) ) + \
         ((len(folders) - specimen_count) * (test_pr_count + test_ot_count) * 2 + (100 * specimen_count))
+
 print(total)
 total += 500
 bar = progressbar.ProgressBar(max_value=total)
@@ -89,7 +90,7 @@ def main(dataset_type):
         files = []
         for temp in os.listdir('.\\comp_data\\' + fold):
             if not ('.' in temp and temp.split('.')[1] == 'jpg'):
-                raise NameError('Not all files are images in folder {}'.format(fold))
+                raise NameError('Not all files are jpg images in folder {}'.format(fold))
             else:
                 files.append(temp)
 

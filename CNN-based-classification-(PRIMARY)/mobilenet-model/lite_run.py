@@ -95,5 +95,5 @@ def verify_test_dir():
     print(correct_preds, file_count)
 
 print('=' * 50)
-print(predict_image('..\\test-images\\50writ.jpg', False))
-#verify_test_dir()
+# print(predict_image('..\\test-images\\kappa.jpg', False))
+verify_test_dir()

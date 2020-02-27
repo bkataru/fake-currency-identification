@@ -76,15 +76,15 @@ def verify_test_dir():
 
         prediction = predict_image(path + '\\' + filename, True)
         if list(prediction.keys())[0] == final_string:
-            print("{}: Correct Prediction".format(filename))
+            print("{}: Correct Prediction".format(filename), prediction)
         else:
-            print("{}: INCORRECT PREDICTION!".format(filename))
+            print("{}: INCORRECT PREDICTION!".format(filename), prediction)
 
 
 print('=' * 50)
-final_result = predict_image('..\\test-images\\kappa.jpg', False)
-print("Final Result: ", final_result)
-# verify_test_dir()
+# final_result = predict_image('..\\test-images\\kappa.jpg', False)
+# print("Final Result: ", final_result)
+verify_test_dir()
 
 
 
