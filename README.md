@@ -1,8 +1,11 @@
 # Fake Currency Identification
 
+| Frontlight  | Backlight | Ultraviolet light |
+| ------------- | ------------- | ------------ |
+| ![](readme1.jpg) | ![](readme2.jpg) | ![](readme3.jpg) |
+
 ## Abstract
 Uses Deep Learning Neural Networks to determine whether an Indian currency note is fake or real.
-
 ## Technical
 Uses retrained MobileNetV2 (and VGG16) image classification models to determine whether an Indian currency note is fake or real. The process happens in three steps:
 1. **Currency Classification Model**: Identifies the denomination, type (old or new), face orientation (front or back), and alignment (up or down) from a frontlight image of the note.
@@ -20,6 +23,7 @@ Explore around the folders in the project and check out the code. I've placed te
 
 The models were trained on Indian currency notes but you can retrain them for other note images provided you have sufficiently diverse data, regardless of how big it is. Take my setup as an example, I had five-seven unique images of every note which is not much considering the fact that there are only 10-12 varieties of Indian currency notes. So even though I only had about a 100 or so samples, with the help of randomized data augmentation, I strategically generated a vast and diverse dataset of 9000-12000 images using those very samples.
 
+**NOTE**: The UV model must be supplied UV light images whereas the Watermark model must be supplied backlit images with  the transparent features visible.
 #### Cool things you can try when training/retraining
 Some suggestions in case you feel experimental or are facing issues with accuracy and loss:
 
