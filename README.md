@@ -59,8 +59,8 @@ foo@bar:~$ python3 convert_to_lite.py
 ### VGG16
 
 ```console
-foo@bar:~$ CNN-based-classification-(PRIMARY)
-foo@bar:~$ vgg16-model
+foo@bar:~$ cd CNN-based-classification-(PRIMARY)
+foo@bar:~$ cd vgg16-model
 
 # Training a new classification model from scratch using data located in ./dataset/
 foo@bar:~$ python3 pretrained_vgg16_train.py

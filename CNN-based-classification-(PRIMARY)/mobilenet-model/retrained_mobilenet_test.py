@@ -82,9 +82,9 @@ def verify_test_dir():
 
 
 print('=' * 50)
-# final_result = predict_image('..\\test-images\\kappa.jpg', False)
-# print("Final Result: ", final_result)
-verify_test_dir()
+final_result = predict_image('..\\test-images\\kappa.jpg', False)
+print("Final Result: ", final_result)
+# verify_test_dir()
 
 
 
