@@ -1,7 +1,6 @@
 dev_env/
 application/app_env/
 application/*.rar
-application/setup_code/
 __pycache__/
 
 CNN-based-classification-(PRIMARY)/dataset/test_set/
