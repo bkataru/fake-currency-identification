@@ -5,6 +5,25 @@ import numpy as np
 from scipy.ndimage import rotate
 import progressbar
 
+def sub(og):
+    h, w, c = og.shape
+    x_start_r = 0.3125  # 200
+    x_end_r = 0.703125  # 450
+    y_start_r = 0.270833  # 130
+    y_end_r = 0.791666  # 380
+
+    x = int(np.floor(x_start_r * w))
+    y = int(np.floor(y_start_r * h))
+    x2 = int(np.floor(x_end_r * w))
+    y2 = int(np.floor(y_end_r * h))
+
+    image = og[y:y2, x:x2].copy()
+
+    RGB = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    edged = cv2.Canny(RGB, 140, 100)
+    return edged
+
+
 def cv2_clipped_zoom(img, zoom_factor):
     """
     Center zoom in/out of the given image and returning an enlarged/shrinked view of
@@ -41,13 +60,15 @@ def modify_image(img_name, inverted_flag):
     contrast = random.randint(70, 130) / 100  # 0.7 to 1.3
     brightness = random.randint(-40, 40)  # 40 to -40
     shear = random.randint(-20, 20) / 100  # 0.2 to -0.2
-    zoom = random.randint(100, 130) / 100  # 1 to 1.3
+    zoom = random.randint(100, 110) / 100  # 1 to 1.1
     rot = random.randint(-100, 100) / 10  # -10 to 10
 
     image = cv2.imread(img_name)
+    image = sub(image)
 
+    # flip instead of rotating
     if inverted_flag:
-        image = rotate(image, 180, reshape=False)
+        image = cv2.flip(image, 1)
 
     image = cv2.convertScaleAbs(image, alpha=contrast, beta=brightness)
 

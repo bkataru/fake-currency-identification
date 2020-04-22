@@ -1,16 +1,14 @@
 import numpy as np
 import cv2
 
-original_image = cv2.imread("2.jpg")
+original_image = cv2.imread("test2.jpg")
 image = original_image.copy()
 
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 blurred = cv2.GaussianBlur(gray, (3, 3), 0)
-thresh = cv2.adaptiveThreshold(blurred, 255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,11,2)
+thresh = cv2.adaptiveThreshold(blurred, 255,cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 3)
 kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
-erode = cv2.dilate(thresh, kernel, iterations = 1)
-dilate = cv2.erode(erode, kernel, iterations = 2)
-
+dilate = cv2.dilate(thresh, kernel, iterations = 1)
 
 cv2.imshow("thresh", thresh)
 cv2.imshow("dilate", dilate)

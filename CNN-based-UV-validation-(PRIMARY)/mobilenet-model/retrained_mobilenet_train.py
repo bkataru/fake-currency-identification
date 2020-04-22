@@ -21,7 +21,7 @@ batch_size = 16
 train_gen = ImageDataGenerator(preprocessing_function=preprocess_input)
 training_set = train_gen.flow_from_directory(
     directory="../dataset/training_set",
-    target_size=(224,224),
+    target_size=(250,250),
     batch_size=batch_size,
     class_mode='categorical',
     shuffle=True
@@ -30,14 +30,14 @@ training_set = train_gen.flow_from_directory(
 test_gen = ImageDataGenerator(preprocessing_function=preprocess_input)
 test_set = test_gen.flow_from_directory(
     directory="../dataset/test_set",
-    target_size=(224,224),
+    target_size=(250,250),
     batch_size=batch_size,
     class_mode='categorical',
     shuffle=True
 )
 
 #imports the mobilenet model and discards the last fully connected neuron layer.
-mobilenetmodel = MobileNetV2(weights='imagenet', input_shape= (224, 224, 3), include_top=False)
+mobilenetmodel = MobileNetV2(weights='imagenet', input_shape= (250, 250, 3), include_top=False)
 print(mobilenetmodel.summary())
 
 x = mobilenetmodel.output

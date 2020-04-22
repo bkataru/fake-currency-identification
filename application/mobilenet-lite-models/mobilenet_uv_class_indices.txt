@@ -1,0 +1,1 @@
+{'continuous': 0, 'dashed': 1, 'nopatch': 2}

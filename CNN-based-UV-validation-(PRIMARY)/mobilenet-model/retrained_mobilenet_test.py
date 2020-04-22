@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from keras.preprocessing import image
 from keras.models import load_model
 import ast, os
+import cv2
 
 model = load_model('uv_mobilenetmodel.h5')
 f = open("mobilenet_uv_class_indices.txt", "r")
@@ -10,17 +11,37 @@ labels = f.read()
 labels = ast.literal_eval(labels)
 final_labels = {v: k for k, v in labels.items()}
 
+def sub(og):
+    h, w, c = og.shape
+    x_start_r = 0.3125  # 200
+    x_end_r = 0.703125  # 450
+    y_start_r = 0.270833  # 130
+    y_end_r = 0.791666  # 380
+
+    x = int(np.floor(x_start_r * w))
+    y = int(np.floor(y_start_r * h))
+    x2 = int(np.floor(x_end_r * w))
+    y2 = int(np.floor(y_end_r * h))
+
+    image = og[y:y2, x:x2].copy()
+
+    # gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    # blurred = cv2.GaussianBlur(gray, (3, 3), 0)
+    # thresh = cv2.adaptiveThreshold(blurred, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 3)
+    thresh = image
+
+    return thresh
 
 def predict_image(imgname, from_test_dir):
-    test_image = image.load_img(imgname, target_size = (224, 224))
-
-    # plt.imshow(test_image)
-    # plt.show()
+    test_image = image.load_img(imgname)
 
     test_image = np.asarray(test_image)
+    test_image = np.asarray(sub(test_image))
     test_image = np.expand_dims(test_image, axis=0)
     test_image = (2.0 / 255.0) * test_image - 1.0
     result = model.predict(test_image)
+
+    print(result)
 
     result_dict = dict()
     for key in list(final_labels.keys()):
@@ -59,10 +80,6 @@ def verify_test_dir():
 
 
 print('=' * 50)
-final_result = predict_image('..\\test-images\\4.jpg', False)
-print("Final Result: ", final_result)
-# verify_test_dir()
-
-
-
-
+# final_result = predict_image('..\\test-images\\test.jpg', False)
+# print("Final Result: ", final_result)
+verify_test_dir()
