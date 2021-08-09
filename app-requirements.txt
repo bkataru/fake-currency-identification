@@ -5,5 +5,5 @@ Pillow==7.0.0
 pygame==1.9.6
 pypiwin32==223
 pyttsx3==2.6
-pywin32==227
+pywin32==301
 tflite==2.1.0
